@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>공사장 VoC 현장조사서</title>
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--tx:#1b1d21;--mu:#6b7280;--bd:#d9dce1;--ac:#e8350e;--ac2:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121316;--card:#1d1f24;--tx:#eceef1;--mu:#9aa1ad;--bd:#33363d;--ac:#ff5a36;--ac2:#111}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 -apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--ac);color:var(--ac2);padding:12px 16px;z-index:5}
+header h1{margin:0;font-size:17px}header p{margin:0;font-size:12px;opacity:.85}
+main{max-width:640px;margin:0 auto;padding:12px 12px 110px}
+section{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+h2{margin:0 0 10px;font-size:15px;color:var(--ac)}
+label{display:block;font-size:12px;color:var(--mu);margin:10px 0 3px}
+input,textarea,select{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{margin:0;font-size:14px;color:var(--tx)}
+.seg input{display:none}
+.seg span{display:block;padding:8px 12px;border:1px solid var(--bd);border-radius:20px;background:var(--bg)}
+.seg input:checked+span{background:var(--ac);color:var(--ac2);border-color:var(--ac)}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.photos div{position:relative;aspect-ratio:1;border-radius:8px;overflow:hidden;border:1px solid var(--bd)}
+.photos img{width:100%;height:100%;object-fit:cover}
+.photos button{position:absolute;top:2px;right:2px;border:0;background:#000a;color:#fff;border-radius:50%;width:24px;height:24px}
+.add{display:block;text-align:center;padding:12px;border:1.5px dashed var(--ac);color:var(--ac);border-radius:10px;font-weight:600}
+.add input{display:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px))}
+.bar button{flex:1;padding:13px 4px;border:1px solid var(--ac);border-radius:10px;background:var(--card);color:var(--ac);font:600 15px inherit}
+.bar .p{background:var(--ac);color:var(--ac2)}
+#t{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#000c;color:#fff;padding:8px 14px;border-radius:20px;font-size:13px;display:none}
+@media print{header,.bar,.add,.photos button{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<header><h1>공사장 VoC 대응 현장조사서</h1><p>입력 내용은 자동 임시저장됩니다</p></header>
+<main id="f">
+
+<section><h2>1. 일반현황</h2>
+<label>국소명</label><input data-k="국소명" value="없음">
+<label>작업지시서번호</label><input data-k="작업지시서번호" inputmode="numeric" value="05682441900">
+<label>실사자(SKO) 부서</label><input data-k="실사자부서" value="수원품질개선팀">
+<div class="row"><div><label>성명</label><input data-k="실사자성명" value="안제영"></div><div><label>연락처</label><input data-k="실사자연락처" type="tel" value="010-3665-6411"></div></div>
+<label>검토자(SKT 지역AI팀) 부서</label><input data-k="검토자부서" value="경기AI팀">
+<div class="row"><div><label>성명</label><input data-k="검토자성명"></div><div><label>연락처</label><input data-k="검토자연락처" type="tel" placeholder="010-"></div></div>
+</section>
+
+<section><h2>2. 공통현황</h2>
+<label>주소(지번)</label><input data-k="주소" value="경기 수원시 영통구 영통동 961-11번지">
+<label>건물명/아파트명</label><input data-k="건물명" value="영통자이센트럴파크아파트 공사장">
+<label>공사장 책임자 - 회사명</label><input data-k="책임자회사" value="지에스건설(주)">
+<div class="row"><div><label>책임자</label><input data-k="책임자" value="이승헌"></div><div><label>연락처</label><input data-k="책임자연락처" type="tel" value="031-8067-8007"></div></div>
+<div class="row"><div><label>건물 준공일</label><input data-k="준공일" value="2027년 2월"></div><div><label>투자사업 반영/개통예정일</label><input data-k="개통예정일"></div></div>
+<label>서비스 요청지역</label><input data-k="서비스요청지역" value="지하1,2층 공사현장">
+<label>1차 협의결과</label><textarea data-k="협의결과" style="min-height:190px">민원인 김원수 (010-5046-7377)요청으로 현장 임시시설 요청. 전기 및 장비위치는 적극적으로 건설사에서 협조해주시기로 함. 타사 동일하게 접수 완료. 지하1,2층 전체적으로 설치 해달라고 하였으나 전체 개선은 불가함 양해구하고 안내드림. 타워크레인 기준으로 장비 시설 후 일부 구간 양방향으로 서비스 필요.</textarea>
+</section>
+
+<section><h2>3. 경쟁사 현황</h2>
+<label>경쟁사 대응여부</label>
+<div class="seg" data-r="경쟁사대응"><label><input type="radio" name="a" value="유" checked><span>유</span></label><label><input type="radio" name="a" value="무"><span>무</span></label></div>
+<label>현황</label>
+<div class="seg" data-r="경쟁사현황"><label><input type="radio" name="b" value="무"><span>무</span></label><label><input type="radio" name="b" value="광중계기"><span>광중계기</span></label><label><input type="radio" name="b" value="RF중형"><span>RF중형</span></label><label><input type="radio" name="b" value="RF소형"><span>RF소형</span></label></div>
+<label>공용화 협의 여부</label><input data-k="공용화협의">
+<label>상세 내용</label><textarea data-k="경쟁사상세">타사 동일하게 접수 완료, 시설예정</textarea>
+</section>
+
+<section><h2>4. 설계내역</h2>
+<label>장비 Type</label>
+<div class="seg" data-r="장비Type"><label><input type="radio" name="c" value="레인저중계기" checked><span>레인저중계기</span></label><label><input type="radio" name="c" value="RF중계기"><span>RF중계기</span></label></div>
+<div class="row"><div><label>기종</label><input data-k="기종" value="M급"></div><div><label>시설 수(EA)</label><input data-k="시설수" inputmode="numeric" value="2"></div></div>
+<label>상세 내용</label><textarea data-k="설계상세">지하1,2층 공사현장 내 장비 시설 및 서비스 안테나 포설 필요.</textarea>
+</section>
+
+<section><h2>5. 기타</h2>
+<label>기타 특이사항</label><textarea data-k="기타">LGU+, KT 시설예정 / 민원인 지에스건설 전기담당자로 사전 연락 요청</textarea>
+</section>
+
+<section><h2>현장 사진 및 도면</h2>
+<label>1. 서비스 커버리지 (사진, 도면, 공사안내표지판 등 — 중계기 운용기간 확인용 표지판 사진 필수)</label>
+<div class="photos" id="p1"></div>
+<label class="add">📷 사진 촬영 / 선택<input type="file" accept="image/*" multiple data-p="p1"></label>
+<label style="margin-top:16px">2. 장비 및 안테나 설치위치 (사진, 도면)</label>
+<div class="photos" id="p2"></div>
+<label class="add">📷 사진 촬영 / 선택<input type="file" accept="image/*" multiple data-p="p2"></label>
+</section>
+</main>
+
+<div class="bar"><button id="save">임시저장</button><button id="share" class="p">공유·제출</button><button id="print">PDF/인쇄</button></div>
+<div id="t"></div>
+
+<script>
+var KEY="site-survey-v1", D={f:{},r:{},p1:[],p2:[]};
+var $=function(s){return document.querySelector(s)}, $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+function toast(m){var t=$("#t");t.textContent=m;t.style.display="block";setTimeout(function(){t.style.display="none"},1800)}
+function load(){try{var s=localStorage.getItem(KEY);if(s)D=JSON.parse(s)}catch(e){}
+ $$("[data-k]").forEach(function(e){if(D.f[e.dataset.k]!==undefined)e.value=D.f[e.dataset.k]});
+ $$("[data-r]").forEach(function(g){var v=D.r[g.dataset.r];Array.prototype.forEach.call(g.querySelectorAll("input"),function(i){if(v)i.checked=(i.value===v)})});
+ draw("p1");draw("p2")}
+function collect(){$$("[data-k]").forEach(function(e){D.f[e.dataset.k]=e.value});
+ $$("[data-r]").forEach(function(g){var c=g.querySelector("input:checked");D.r[g.dataset.r]=c?c.value:""})}
+function save(q){collect();try{localStorage.setItem(KEY,JSON.stringify(D));if(!q)toast("저장되었습니다")}catch(e){if(!q)toast("저장 공간 부족: 사진을 줄여주세요")}}
+function draw(id){var w=$("#"+id);w.innerHTML="";D[id].forEach(function(src,i){var d=document.createElement("div"),im=new Image(),b=document.createElement("button");im.src=src;b.textContent="×";b.onclick=function(){D[id].splice(i,1);draw(id);save(true)};d.appendChild(im);d.appendChild(b);w.appendChild(d)})}
+function shrink(file,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=1024,s=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);cb(c.toDataURL("image/jpeg",.7))};im.src=r.result};r.readAsDataURL(file)}
+$$("input[type=file]").forEach(function(inp){inp.onchange=function(){var id=inp.dataset.p;Array.prototype.forEach.call(inp.files,function(f){shrink(f,function(u){D[id].push(u);draw(id);save(true)})});inp.value=""}});
+document.addEventListener("input",function(){save(true)});
+$("#save").onclick=function(){save()};
+$("#print").onclick=function(){save(true);window.print()};
+function summary(){collect();var f=D.f,r=D.r;return ["[공사장 VoC 현장조사서]","국소명: "+f.국소명,"작업지시서번호: "+f.작업지시서번호,"실사자: "+f.실사자부서+" / "+f.실사자성명+" / "+f.실사자연락처,"검토자: "+f.검토자부서+" / "+f.검토자성명+" / "+f.검토자연락처,"","[공통현황]","주소: "+f.주소,"건물명: "+f.건물명,"책임자: "+f.책임자회사+" "+f.책임자+" "+f.책임자연락처,"준공일: "+f.준공일+" / 개통예정: "+f.개통예정일,"서비스 요청지역: "+f.서비스요청지역,"1차 협의결과: "+f.협의결과,"","[경쟁사] 대응: "+r.경쟁사대응+" / 현황: "+(r.경쟁사현황||"-")+" / 공용화: "+f.공용화협의,"상세: "+f.경쟁사상세,"","[설계] "+r.장비Type+" "+f.기종+" "+f.시설수+"EA","상세: "+f.설계상세,"","[기타] "+f.기타,"","사진: 커버리지 "+D.p1.length+"장 / 설치위치 "+D.p2.length+"장"].join("\n")}
+$("#share").onclick=function(){save(true);var txt=summary();
+ function fallback(){if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast("내용이 복사되었습니다")},function(){toast("복사 실패")})}else toast("공유 미지원 브라우저")}
+ try{var files=[];D.p1.concat(D.p2).forEach(function(u,i){var a=atob(u.split(",")[1]),n=a.length,x=new Uint8Array(n);while(n--)x[n]=a.charCodeAt(n);files.push(new File([x],"사진"+(i+1)+".jpg",{type:"image/jpeg"}))});
+  var data={title:"현장조사서",text:txt};if(files.length&&navigator.canShare&&navigator.canShare({files:files}))data.files=files;
+  if(navigator.share)navigator.share(data).catch(function(){});else fallback()}catch(e){fallback()}};
+load();
+</script>
+</body>
+</html>
